@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int[] theArray = new int[50];
     private int arrySize = 10;
+    private boolean isRow = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("theArray selectinSort: ", Arrays.toString(theArray));
         insertionSort();
         Log.d("theArray insertonSort: ", Arrays.toString(theArray));
+        leftTriangle();
+        rightTriangle();
+        pyramidTriangle();
         //recursive practice
         /*printNumb(5);
         System.out.println("catEyes" + catEyes(5));*/
@@ -175,7 +179,53 @@ public class MainActivity extends AppCompatActivity {
             printNumb(num - 1);
         }
     }
+public void leftTriangle(){
+        System.out.println("lefttriangle");
+        int row = 3;
+        for(int i = 1;i<=row;i++){
+            for(int j = 1;j<=i;j++){
+                Log.i("ram","*");
+            }
 
+            System.out.println(" ");
+        }
+}
+
+public void rightTriangle(){
+    System.out.println("Right triangle");
+    int row = 4;
+    for(int i = 1; i<=row;i++){
+        for(int k = 3;k>=i;k--){
+            System.out.print(" ");
+        }
+        for(int j = 1;j<=i;j++){
+            System.out.print("*");
+        }
+        System.out.println("");
+    }
+}
+public void pyramidTriangle(){
+    System.out.println("pyramidTriangle");
+    int row = 6;
+    for(int i = 0;i<row;i++){
+        isRow= true;
+        for(int j = 0;j<=10;j++){
+            if(j ==row+i|| j == row - i){
+                if(isRow) {
+                    for (int k = row - i; k <= row + i; k++) {
+                        System.out.print("*");
+                    }
+                }
+                //to execute k loop once per row
+                isRow = false;
+            }else {
+                System.out.print(" ");
+            }
+        }
+        System.out.println("");
+
+    }
+}
     public static int catEyes(int cats) {
         if (cats == 0) {
             return 0;
